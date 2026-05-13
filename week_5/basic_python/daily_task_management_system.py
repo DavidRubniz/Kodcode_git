@@ -112,6 +112,3 @@ def main(_tasks_list: list[dict]) -> None:
 if __name__ == '__main__':
     main(TASKS_LIST)
 
-
-
-
