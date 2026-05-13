@@ -53,7 +53,7 @@ def main():
             status[sec[1]] = val_inp
         else:
             turns -= 1
-         if check_finish(status, turns):
+        if check_finish(status, turns):
              break
 
 if __name__ == "__main__":
