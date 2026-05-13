@@ -1,5 +1,5 @@
 #1
-def f(users):
+def check_active_users(users):
     active_users = []
     for user in users:
         if user[1] >= 18 and user[2]:
@@ -11,7 +11,7 @@ users_dict = [
     ["Noa", 16, True],
     ["Yael", 30, False],
 ]
-print(f(users_dict))
+print(check_active_users(users_dict))
 
 
 #2
