@@ -38,7 +38,7 @@ def show_mission(task: dict) -> str:
     return f'''
     the mission name: {task['name']} 
     the priority: {task['priority']}
-    is completed: {'yes' if task['is completed'] else 'no'}
+    is completed: {'yes' if task['is_completed'] else 'no'}
     
     '''
 
@@ -103,7 +103,7 @@ def main(_tasks_list: list[dict]) -> None:
     while True:
         print(MENU)
         _choice = get_valid_input()
-        if _choice == 6:
+        if _choice == '6':
             print('bay bay')
             break
         print(dict_of_function[_choice](_tasks_list))
