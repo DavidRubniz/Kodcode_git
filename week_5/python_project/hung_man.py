@@ -2,12 +2,13 @@ import random
 
 WORDS_LIST = ['red', 'blue', 'green', 'grey']
 guess = []
+score = 0
 
-def random_word():
+def random_word() -> str:
     return random.choice(WORDS_LIST)
 
 
-def get_valid_input():
+def get_valid_input() -> str|None:
     while True:
         gues = input('Enter your gues: ').lower()
         if ('a' <= gues <= 'z' or 'A' <= gues <= 'Z') and len(gues) == 1:
@@ -15,7 +16,7 @@ def get_valid_input():
         print('you must enter one letter in English')
 
 
-def check_gues(word: str, gues: str):
+def check_gues(word: str, gues: str) -> tuple[bool, int] | bool:
     if gues in word:
         if not gues in guess:
             return True, word.index(gues)
@@ -28,16 +29,19 @@ def check_gues(word: str, gues: str):
     return False
 
 
-def check_finish(_status: list, _turns: int):
+def check_finish(_status: list, _turns: int) -> bool:
+    global score
     if _turns == 0:
         print('you failed')
         return True
     if '_' not in _status:
         print(f'well done the word is: {''.join(_status)}')
+        score += 10
+        print(f'your score is {score}')
         return True
     return False
 
-def main():
+def main() -> None:
     print('wellcome to hung-man game')
     word = random_word()
     status = ['_' for i in range(len(word))]
