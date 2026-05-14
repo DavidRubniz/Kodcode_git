@@ -18,21 +18,15 @@ def get_valid_input() -> str|None:
 
 def check_gues(word: str, gues: str) -> tuple[bool, int] | bool:
     if gues in word:
-        if not gues in guess:
-            return True, word.index(gues)
-        else:
-            letter_count = word.count(gues)
-            if letter_count > 1:
-                indexes = [i for i, letter in enumerate(word) if letter == gues]
-                guess_count = guess.count(gues)
-                return True, indexes[guess_count]
+        indexes = [i for i, letter in enumerate(word) if letter == gues]
+        return True, indexes
     return False
 
 
 def check_finish(_status: list, _turns: int) -> bool:
     global score
     if _turns == 0:
-        print('you failed')
+        print(f'you failed the word is: {''.join(_status)}')
         return True
     if '_' not in _status:
         print(f'well done the word is: {''.join(_status)}')
@@ -49,12 +43,13 @@ def main() -> None:
     while True:
         print(''.join(status))
         print(f'you left {turns} turns to play')
-        print(guess)
+        print(f'guessed: {guess}')
         val_inp = get_valid_input()
         sec = check_gues(word, val_inp)
         guess.append(val_inp)
-        if sec:
-            status[sec[1]] = val_inp
+        if sec and sec[0]:
+            for idx in sec[1]:
+                status[idx] = val_inp
         else:
             turns -= 1
         if check_finish(status, turns):
@@ -66,10 +61,6 @@ if __name__ == "__main__":
         _choice = input('press 0 for exit and 1 to play again: ')
         if _choice == '0':
             break
+        guess = []
         print()
         print()
-
-
-
-
-
