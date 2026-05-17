@@ -44,14 +44,16 @@ def seconde_largest(lst):
     if len(lst) < 2:
         return None
     largest = 0
-    seconde_largest = 0
+    _seconde_largest = 0
     for i in lst:
         if i >= largest:
-            seconde_largest = largest
+            _seconde_largest = largest
             largest = i
-    if largest == seconde_largest:
+        elif largest > i > _seconde_largest:
+            _seconde_largest = i
+    if largest == _seconde_largest:
         return None
-    return seconde_largest
+    return _seconde_largest
 
 #7
 def marge_lists(lst1, lst2):
