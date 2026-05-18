@@ -86,3 +86,6 @@ def most_frequent_value(dct):
         if values.count(i) > frequent_value:
             frequent_value = values.count(i)
     return frequent_value
+
+
+
