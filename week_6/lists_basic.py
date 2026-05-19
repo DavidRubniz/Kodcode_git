@@ -72,11 +72,10 @@ def marge_lists(lst1, lst2):
     merged.extend(lst2[j:])
     return merged
 
-
 #8
 def rotate_list(lst, n):
     if n > len(lst):
-        n -= len(lst)
+        n = n % len(lst)
     n = len(lst) - n
     return lst[n:] + lst[:n]
 

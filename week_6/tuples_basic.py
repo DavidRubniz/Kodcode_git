@@ -78,4 +78,3 @@ def rotate_tuple(tpl, k):
     k = k % len(tpl)
     k = len(tpl) - k
     return tuple(list(tpl[k:] + tpl[:k]))
-print(rotate_tuple((1,2,3,4,5), 2))

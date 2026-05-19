@@ -63,8 +63,8 @@ def distinct_words(str):
 def pair_sum_exists(lst, target):
     seen = set()
     for i in lst:
-        comp = target - i
-        if comp in seen:
+        tmp = target - i
+        if tmp in seen:
             return True
         seen.add(i)
     return False
@@ -80,3 +80,16 @@ def symmetric_difference(lst1, lst2):
             unique.append(i)
     return sorted(unique)
 
+
+'''
+i was a midle childe of five years, ther was a cab of five years on easier side my father before i was ghit in some reasones i soon developed disagreable which made my unpopiler throw out 
+schoole dayes   
+'''
+
+l1 = [5, 3, 9]
+def f(l):
+    l.sort()
+    print(l)
+print(l1)
+f(l1)
+print(l1)
